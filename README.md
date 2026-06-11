@@ -3,7 +3,7 @@
 Project: A Django-based Institute Management System for courses, batches, teachers, staff and students.
 
 ## Live Link
-- Replace this with your deployed URL: https://YOUR_RENDER_SERVICE.onrender.com
+- Replace this with your deployed URL: https://institute-management-system-django.onrender.com
 
 ## Quick Login (Demo)
 - Authority dashboard:
