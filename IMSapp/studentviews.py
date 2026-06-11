@@ -425,10 +425,9 @@ def studentbatches(request):
 @login_required
 def studentongoingbatch(request):
     current_user = request.user
-    coursedata=AdmittedCourseModel.objects.filter(Courseuser=current_user)
-
-    for batch in coursedata:
-        batchdata = BatchInfoModel.objects.filter(Status = 'On-Going')
+    ongoing_statuses = ['On-Going', 'On Going', 'Ongoing', 'ongoing']
+    admitted_batches = AdmittedCourseModel.objects.filter(Courseuser=current_user).values_list('LearningBatch_id', flat=True)
+    batchdata = BatchInfoModel.objects.filter(Status__in=ongoing_statuses, id__in=admitted_batches).distinct()
 
     context = {
         'batchdata':batchdata,

@@ -146,7 +146,15 @@ def teacherbatchinfo(request):
 
 @login_required
 def teachersalaryinfo(request):
-    return render(request,'teachers/teachersalaryinfo.html') 
+    salarydata = SalaryModel.objects.select_related('Imsuser').all().order_by('-PaymentDate')
+    total_salary_records = salarydata.count()
+    current_path = request.path
+    context = {
+        'salarydata': salarydata,
+        'total_salary_records': total_salary_records,
+        'path': current_path,
+    }
+    return render(request,'teachers/teachersalaryinfo.html', context)
 
 @login_required
 def teacherattendence(request):
