@@ -5,15 +5,31 @@
 <!-- Hero Section -->
 <section id="hero" class="hero section">
 
-  <img src="{% static 'assets/img/hero-bg.jpg' %}" alt="" data-aos="fade-in">
+  <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80"
+     alt="Students Learning"
+     data-aos="fade-in">
 
   <div class="container">
-    <h2 data-aos="fade-up" data-aos-delay="100">Be Enlightened<br>to be Enshrined</h2>
-    <h3 data-aos="fade-up" data-aos-delay="200">This Project developed by the team <strong>"Bug Fixers"</strong></h3>
-    <h3 data-aos="fade-up" data-aos-delay="200"><strong>Team Members:</strong> Jessica, Tarek Mahmud, Fuad, Shakil</h3>
-    <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
-      <a href="{% url 'batches' %}" class="btn-get-started">Get Started</a>
+    <div class="container">
+      <h2 data-aos="fade-up" data-aos-delay="100">
+        Student Management System
+      </h2>
+
+      <h3 data-aos="fade-up" data-aos-delay="200">
+        Manage your student records efficiently with a modern and user-friendly system.
+      </h3>
+
+      <h3 data-aos="fade-up" data-aos-delay="250">
+        Track student progress, monitor attendance, manage enrollments, and generate reports seamlessly.
+      </h3>
+
+      <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+        <a href="{% url 'batches' %}" class="btn-get-started">
+          Get Started
+        </a>
+      </div>
     </div>
+
   </div>
 
 </section><!-- /Hero Section -->
@@ -196,14 +212,14 @@
 
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
-      <h2>Feedback</h2>
-      <p>What are the students saying</p>
+    <h2>Feedback</h2>
+    <p>What are the students saying</p>
   </div><!-- End Section Title -->
 
   <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-      <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
+    <div class="swiper init-swiper">
+      <script type="application/json" class="swiper-config">
             {
               "loop": true,
               "speed": 600,
@@ -228,32 +244,31 @@
               }
             }
           </script>
-          <div class="swiper-wrapper">
-              
-              {% for i in getcourseReview %}
-              <div class="swiper-slide">
-                  <div class="testimonial-wrap">
-                      <div class="testimonial-item">
-                          <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                          <h3>{{i.Imsuser.StudentName}}</h3>
-                          <p>{{i.CourseName}}</p>
-                          <div class="stars">
-                              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                  class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                  class="bi bi-star-fill"></i>
-                          </div>
-                          <p>
-                              <i class="bi bi-quote quote-icon-left"></i>
-                              <span>{{i.Review}}</span>
-                              <i class="bi bi-quote quote-icon-right"></i>
-                          </p>
-                      </div>
-                  </div>
-              </div><!-- End testimonial item -->
-              {% endfor %}
+      <div class="swiper-wrapper">
+
+        {% for i in getcourseReview %}
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="testimonial-item">
+              <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+              <h3>{{i.Imsuser.StudentName}}</h3>
+              <p>{{i.CourseName}}</p>
+              <div class="stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                  class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p>
+                <i class="bi bi-quote quote-icon-left"></i>
+                <span>{{i.Review}}</span>
+                <i class="bi bi-quote quote-icon-right"></i>
+              </p>
+            </div>
           </div>
-          <div class="swiper-pagination"></div>
+        </div><!-- End testimonial item -->
+        {% endfor %}
       </div>
+      <div class="swiper-pagination"></div>
+    </div>
   </div>
 </section><!-- /Testimonials Section -->
 

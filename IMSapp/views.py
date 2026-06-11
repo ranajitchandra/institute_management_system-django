@@ -112,6 +112,7 @@ def dashboard(request):
         project += int(course.TotalProject)
     
     
+    current_path = request.path
     context = {
         'teacherdata':teacherdata,
         'coursedata':coursedata,
@@ -131,6 +132,7 @@ def dashboard(request):
         'spenttime':spenttime,
         'lecture':lecture,
         'project':project,
+        'path': current_path,
     }
     
     return render(request,'common/dashboard.html',context)
@@ -281,7 +283,8 @@ def upcommingbatch(request):
     return render(request,'common/upcommingbatch.html',context)
 
 def ongoingbatch(request):
-    batchdata = BatchInfoModel.objects.filter(Status='On-Going')
+    ongoing_statuses = ['On-Going', 'On Going', 'Ongoing', 'ongoing']
+    batchdata = BatchInfoModel.objects.filter(Status__in=ongoing_statuses)
     contactdata = WebsiteContactModel.objects.get(Imsuser = 'Authority')
     current_path = request.path
     context = {
