@@ -116,7 +116,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://institute-management-system-django.onrender.com'
+]
 
 
 AUTH_USER_MODEL = 'IMSapp.IMSUserModel'
